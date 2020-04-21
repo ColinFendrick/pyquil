@@ -25,3 +25,8 @@ print(result[1])
 
 wfn = WavefunctionSimulator().wavefunction(p)
 print(wfn)
+
+
+for observable in [z0, z1, xor]:
+    expectation = WavefunctionSimulator().expectation(prep_prog=p, pauli_terms=observable)
+    print(observable, '\t', expectation)

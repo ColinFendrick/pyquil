@@ -1,5 +1,6 @@
 from pyquil import Program
 from pyquil.gates import CNOT, H
+from pyquil.api import WavefunctionSimulator
 
 def ghz_state(qubits):
     """
@@ -16,3 +17,7 @@ def ghz_state(qubits):
 # Create a GHZ state on qubits 1, 2, and 3
 program = ghz_state(qubits=[0, 1, 2])
 print(program)
+
+# Check that this program gives us the desired wavefunction
+wfn = WavefunctionSimulator().wavefunction(program)
+print(wfn)
